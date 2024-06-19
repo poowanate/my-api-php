@@ -9,12 +9,14 @@ $authcontroller = new AuthController();
 
 $params =array();
 
-$params["first_name"] = isset($_POST["first_name"]) && !empty($_POST["first_name"]) ? $_POST["first_name"] : "";
-$params["last_name"] = isset($_POST["last_name"]) && !empty($_POST["last_name"]) ? $_POST["last_name"] : "";
-$params["email"] = isset($_POST["email"]) && !empty($_POST["email"]) ? $_POST["email"] : "";
-$params["gender"] = isset($_POST["gender"]) && !empty($_POST["gender"]) ? $_POST["gender"] : "";
-$params["ip_address"] = isset($_POST["ip_address"]) && !empty($_POST["ip_address"]) ? $_POST["ip_address"] : "";
-$params["phone"] = isset($_POST["phone"]) && !empty($_POST["phone"]) ? $_POST["phone"] : "";
+
+
+$params["Username"] = isset($_POST["Username"]) && !empty($_POST["Username"]) ? $_POST["Username"] : "";
+$params["Password"] = isset($_POST["Password"]) && !empty($_POST["Password"]) ? $_POST["Password"] : "";
+$params["First_name"] = isset($_POST["First_name"]) && !empty($_POST["First_name"]) ? $_POST["First_name"] : "";
+$params["Last_name"] = isset($_POST["Last_name"]) && !empty($_POST["Last_name"]) ? $_POST["Last_name"] : "";
+$params["Email"] = isset($_POST["Email"]) && !empty($_POST["Email"]) ? $_POST["Email"] : "";
+$params["User_level"] = isset($_POST["User_level"]) && !empty($_POST["User_level"]) ? $_POST["User_level"] : "";
 
 $data = json_encode($params);
 $data = json_decode($data);
