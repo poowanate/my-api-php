@@ -11,11 +11,12 @@ $authcontroller = new AuthController();
 $params =array();
 
 
-$params["phone"] = isset($_POST["phone"]) && !empty($_POST["phone"]) ? $_POST["phone"] : "";
+$params["phone"] = isset($phone) && !empty($phone) ? $phone : "";
+
 
 $data = json_encode($params);
 $data = json_decode($data);
-// print_r($data); check input
+
 // exit();
 
 
@@ -23,6 +24,7 @@ $authcontroller->phone = $data->phone;
 
 
  if($data ->phone == ""){
+    print_r('empty');
     http_response_code(200);
     echo json_encode(
         $arr = array(   

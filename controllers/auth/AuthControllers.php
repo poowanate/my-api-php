@@ -29,21 +29,20 @@ class AuthController extends Controller{
 
         /**
      * @OA\Post(
-     *      path="/PHP-API/api/v1/auth", tags={"Authorization"}, description="get Token",
+     *      path="/PHP-API/api/v1/auth/{phone}", tags={"Authorization"}, description="get Token",
      *      summary="Create a token",
      *      description="Endpoint to create a new resource",
-    *      @OA\RequestBody(
- *           @OA\MediaType(
- *                      mediaType="multipart/form-data",
- *                      @OA\Schema(
- *              required={"phone"},
- *              
- *              @OA\Property(property="phone", type="string"),
- *          
- * 
- * )
- *          ),
+        *  *      @OA\Parameter(
+ *          name="phone",
+ *          in="path",
+ *          required=true,
+ *          description="ID of the user to update",
+ *          @OA\Schema(
+ *              type="integer",
+ *              format="int64"
+ *          )
  *      ),
+   
  *      @OA\Response(
  *          response=201,
  *          description="User created successfully",
@@ -65,6 +64,7 @@ class AuthController extends Controller{
         try{
             $userModel = new UserModel($this->db);
             $userModel->phone =$this->phone;
+          
             $stmt = $userModel->get_by_phone();
             if($stmt){
                 $countRow = $stmt->rowCount();

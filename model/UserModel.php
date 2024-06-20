@@ -128,6 +128,7 @@ class UserModel
     public function get_by_phone()
     {
         try{
+           
             $query = "SELECT * FROM ". $this->table ." WHERE phone = :phone limit 1";
            
             $stmt = $this->conn->prepare($query);

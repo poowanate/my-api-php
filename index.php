@@ -9,7 +9,7 @@ $router->map("GET", "/", function () {
     require_once(__DIR__.'/view/landing.php');
 });
 
-$router->map("POST", "/api/v1/auth", function () {
+$router->map("POST", "/api/v1/auth/[i:phone]", function ($phone) {
     require_once(__DIR__.'/api/auth/auth.php');
 });
 $router->map("POST", "/api/v1/auth/register", function () {
