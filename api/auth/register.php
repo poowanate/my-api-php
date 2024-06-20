@@ -37,7 +37,7 @@ if ($data ->Username == ""){
             "response"=> array(),
             "code"=>204,
             "status"=>"error",
-            "message"=>"You didn't input your firstname . Please try agian"
+            "message"=>"You didn't input your Username . Please try agian"
         )
         );
 }
@@ -48,7 +48,7 @@ else if($data ->Password == ""){
             "response"=> array(),
             "code"=>204,
             "status"=>"error",
-            "message"=>"You didn't input your lastname . Please try agian"
+            "message"=>"You didn't input your Password . Please try agian"
         )
         );
 }
@@ -59,7 +59,7 @@ else if($data ->First_name == ""){
             "response"=> array(),
             "code"=>204,
             "status"=>"error",
-            "message"=>"You didn't input your phone . Please try agian"
+            "message"=>"You didn't input your Firstname . Please try agian"
         )
         );
 }
@@ -70,18 +70,18 @@ else if($data ->Last_name == ""){
             "response"=> array(),
             "code"=>204,
             "status"=>"error",
-            "message"=>"You didn't input your email . Please try again"
+            "message"=>"You didn't input your Lastname . Please try again"
         )
         );
 }
-else if($data ->User_level == ""){
+else if($data ->Email == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
             "response"=> array(),
             "code"=>204,
             "status"=>"error",
-            "message"=>"You didn't input your gender . Please try again"
+            "message"=>"You didn't input your Email . Please try again"
         )
         );
 }else{

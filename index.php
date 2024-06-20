@@ -35,8 +35,21 @@ $router->map("GET", "/api/v1/user/[i:id]", function ($id) {
 });
 
 
-
-
+$router->map("GET", "/api/v1/post", function () {
+    require_once(__DIR__.'/api/post/getAll.php');
+});
+$router->map("GET", "/api/v1/post/[i:uid]", function ($uid) {
+    require_once(__DIR__.'/api/post/get_by_uid.php');
+});
+$router->map("POST", "/api/v1/post/create", function () {
+    require_once(__DIR__.'/api/post/create.php');
+});
+$router->map("POST", "/api/v1/post/[i:id]/update", function ($id) {
+    require_once(__DIR__.'/api/post/update.php');
+});
+$router->map("POST", "/api/v1/post/[i:id]/delete", function ($id) {
+    require_once(__DIR__.'/api/post/delete.php');
+});
 
 $match = $router->match();
 if( is_array($match) && is_callable( $match['target'] ) ) {
