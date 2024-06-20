@@ -23,14 +23,14 @@ $data = json_decode($data);
 // print_r($data); check input
 // exit();
 
-$authcontroller->first_name = $data->first_name;
-$authcontroller->last_name = $data->last_name;
-$authcontroller->email = $data->email;
-$authcontroller->gender = $data->gender;
-$authcontroller->ip_address = $data->ip_address;
-$authcontroller->phone = $data->phone;
+$authcontroller->Username = $data->Username;
+$authcontroller->Password = $data->Password;
+$authcontroller->First_name = $data->First_name;
+$authcontroller->Last_name = $data->Last_name;
+$authcontroller->Email = $data->Email;
+$authcontroller->User_level = $data->User_level;
 
-if ($data ->first_name == ""){
+if ($data ->Username == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
@@ -41,7 +41,7 @@ if ($data ->first_name == ""){
         )
         );
 }
-else if($data ->last_name == ""){
+else if($data ->Password == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
@@ -52,7 +52,7 @@ else if($data ->last_name == ""){
         )
         );
 }
-else if($data ->phone == ""){
+else if($data ->First_name == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
@@ -63,7 +63,7 @@ else if($data ->phone == ""){
         )
         );
 }
-else if($data ->email == ""){
+else if($data ->Last_name == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
@@ -74,7 +74,7 @@ else if($data ->email == ""){
         )
         );
 }
-else if($data ->gender == ""){
+else if($data ->User_level == ""){
     http_response_code(200);
     echo json_encode(
         $arr = array(   
@@ -86,7 +86,7 @@ else if($data ->gender == ""){
         );
 }else{
     
-    if($authcontroller->register()){
+    if($authcontroller->register_id()){
      
         http_response_code(200);
         echo json_encode(

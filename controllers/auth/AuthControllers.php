@@ -170,6 +170,40 @@ class AuthController extends Controller{
             
         }
 
+             /**
+     * @OA\Post(
+     *      path="/PHP-API/api/v1/auth/register", tags={"Authorization"}, description="Register User",
+     *      summary="Register a new user",
+     *      description="Endpoint to create a new resource",
+    *      @OA\RequestBody(
+ *           @OA\MediaType(
+ *                      mediaType="multipart/form-data",
+ *                      @OA\Schema(
+ *              required={"first_name", "last_name", "email","gender","phone"},
+ *              @OA\Property(property="first_name", type="string"),
+ *              @OA\Property(property="last_name", type="string"),
+ *              @OA\Property(property="email", type="string"),
+ *              @OA\Property(property="gender", type="string"),
+ *              @OA\Property(property="phone", type="string"),
+ *              @OA\Property(property="ip_address", type="string"),
+ * 
+ * )
+ *          ),
+ *      ),
+ *      @OA\Response(
+ *          response=201,
+ *          description="User created successfully",
+ *      ),
+ *      @OA\Response(
+ *          response=400,
+ *          description="Bad request",
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal server error",
+ *      ),
+     * )
+     */
       
         public function register_id()
         {
