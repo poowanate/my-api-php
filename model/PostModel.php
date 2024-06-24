@@ -78,10 +78,11 @@ class PostModel
     public function update()
     {
         try{
-            $query ="UPDATE ".$this->table ." SET  title= :title , body= :body , testselect= :testselect  WHERE id = :id";
+            $query ="UPDATE ".$this->table ." SET user_id=:user_id, title= :title , body= :body , testselect= :testselect  WHERE id = :id";
             
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam('id', $this->id);
+            $stmt->bindParam('user_id', $this->user_id);
             $stmt->bindParam('title',$this->title,PDO::PARAM_STR);
             $stmt->bindParam('body',$this->body,PDO::PARAM_STR);
             $stmt->bindParam('testselect',$this->testselect,PDO::PARAM_STR);

@@ -78,6 +78,7 @@ use Firebase\JWT\Key;
  */
     public function getPostbyuserID()
     {
+     
         $header = apache_request_headers();
         $this->result = null;
        
