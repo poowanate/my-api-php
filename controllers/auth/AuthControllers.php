@@ -191,7 +191,16 @@ class AuthController extends Controller{
                             $this->result=$loginModel->insert();
                         }
                         else{
-                            $this->result = false;
+                            http_response_code(200);
+                            echo json_encode(
+                                $arr = array(   
+                                
+                                    "code"=>409,
+                                    "status"=>"error",
+                                    "message"=>"Fail your username Duplicate  "
+                                )
+                                );
+                                exit();
                         }
                         
                     }else{

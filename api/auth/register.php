@@ -105,7 +105,7 @@ else if($data ->Email == ""){
                 "response"=> array(),
                 "code"=>204,
                 "status"=>"error",
-                "message"=>"You wasn't register successfully. Please try again"
+                "message"=>"You wasn't register or successfully. Please try again"
             )
             );
     }
