@@ -216,4 +216,73 @@ class AuthController extends Controller{
             
         }
 
+
+                     /**
+     * @OA\Post(
+     *      path="/PHP-API/api/v1/auth/login", tags={"Authorization"}, description="Login User",
+     *      summary="Login user",
+     *      description="Endpoint to login",
+    *      @OA\RequestBody(
+ *           @OA\MediaType(
+ *                      mediaType="multipart/form-data",
+ *                      @OA\Schema(
+ *              required={"Username", "Password"},
+ *              @OA\Property(property="Username", type="string"),
+ *              @OA\Property(property="Password", type="string"),
+ *           
+ * 
+ * )  
+ *          ),
+ *      ),
+ *      @OA\Response(
+ *          response=201,
+ *          description="User created successfully",
+ *      ),
+ *      @OA\Response(
+ *          response=400,
+ *          description="Bad request",
+ *      ),
+ *      @OA\Response(
+ *          response=500,
+ *          description="Internal server error",
+ *      ),
+     * )
+     */
+
+        public function login()
+        {
+           
+                $this->result =null;
+                try{
+                    $loginModel = new LoginModel($this->db);
+                    $loginModel->Username = $this->Username;
+                    $loginModel->Password = $this->Password;
+                    $stmt=$loginModel->login();
+                    if($stmt){
+                        // $countRow = $stmt->rowCount();
+                       
+                        // if($countRow > 0){
+                        //     $this->result=true;
+                        // }
+                        // else{
+                        //     $this->result = false;
+                        // }
+                        
+                    }else{
+                        $this->result = false;
+                    }
+                      
+                        
+                   
+                 
+                   
+        
+                }catch(PDOExecption $e){
+                    $this->result=false;
+                }
+                return $this->result;
+            
+        }
+
+
 }

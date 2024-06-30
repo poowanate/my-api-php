@@ -60,6 +60,47 @@ class LoginModel
         }
     }
 
+    public function Login()   
+    {
+        try{
+            $query = "SELECT * FROM ". $this->table ." WHERE Username=? and Password=? ";
+          
+            $stmt = $this->conn->prepare($query);
+            // $stmt->bindParam('Username', $this->Username, PDO::PARAM_STR);
+            // $stmt->bindParam('Password', $this->Password, PDO::PARAM_STR);
+            $stmt->execute([$this->Username, $this->Password]);
+            $q = $stmt->rowCount();
+            
+            if($q == 1 ){
+               
+                 http_response_code(200);
+                 $arr = array();
+                 $arr["response"] = array();
+                 $arr["code"]= 200;
+                 $arr["status"]="success";
+                 $arr["message"]="Login Success";
+         
+                 
+         
+         
+                 while($row =  $stmt->fetch(PDO::FETCH_ASSOC)){
+                     $r = $row;
+                     
+                     array_push($arr["response"],$r);
+                 }
+                 
+                 echo json_encode($arr, JSON_UNESCAPED_UNICODE);
+                 exit();
+            }else{
+                return false;
+            }
+        }
+        catch(PDOExeption $e){
+            return false;
+
+        }
+    }
+
 }
 
     ?>
